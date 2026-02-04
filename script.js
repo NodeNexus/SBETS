@@ -8,6 +8,8 @@ let userData = null;
 let transactionsData = [];
 let analyticsData = null;
 let currentMerchant = null;
+let categoryChartInstance = null;
+let trendChartInstance = null;
 
 // 20 DIVERSE MERCHANTS WITH ACCURATE CATEGORIES
 const MERCHANTS_POOL = [
@@ -327,39 +329,166 @@ function getCategoryIcon(c) {
 function createCategoryChart(data) {
     const canvas = document.getElementById('categoryChart');
     if (!canvas) return;
-    const ctx = canvas.getContext('2d'), w = canvas.width, h = canvas.height;
-    ctx.clearRect(0, 0, w, h);
-    const total = data.reduce((s, i) => s + i.amount, 0);
-    let startAng = -0.5 * Math.PI;
-    const cx = w / 2, cy = h / 2, r = Math.min(cx, cy) - 40;
-    data.forEach(item => {
-        const slice = (item.amount / total) * 2 * Math.PI;
-        ctx.beginPath();
-        ctx.arc(cx, cy, r, startAng, startAng + slice);
-        ctx.lineTo(cx, cy);
-        ctx.fillStyle = item.color;
-        ctx.fill();
-        startAng += slice;
+
+    if (categoryChartInstance) {
+        categoryChartInstance.destroy();
+    }
+
+    const ctx = canvas.getContext('2d');
+
+    // Prepare data for Chart.js
+    const labels = data.map(item => item.category);
+    const values = data.map(item => item.amount);
+    const colors = data.map(item => item.color);
+
+    categoryChartInstance = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: labels,
+            datasets: [{
+                data: values,
+                backgroundColor: colors,
+                borderWidth: 0,
+                hoverOffset: 10
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: '70%',
+            plugins: {
+                legend: {
+                    position: 'right',
+                    labels: {
+                        color: '#94a3b8',
+                        font: {
+                            family: 'Inter',
+                            size: 11
+                        },
+                        usePointStyle: true,
+                        pointStyle: 'circle'
+                    }
+                },
+                tooltip: {
+                    backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                    titleColor: '#fff',
+                    bodyColor: '#cbd5e1',
+                    padding: 12,
+                    cornerRadius: 8,
+                    callbacks: {
+                        label: function (context) {
+                            const value = context.raw;
+                            const total = context.chart._metasets[context.datasetIndex].total;
+                            const percentage = Math.round((value / total) * 100) + '%';
+                            return ` ${context.label}: ₹${value.toLocaleString()} (${percentage})`;
+                        }
+                    }
+                }
+            },
+            elements: {
+                arc: {
+                    borderRadius: 5
+                }
+            }
+        }
     });
-    ctx.beginPath();
-    ctx.arc(cx, cy, r * 0.65, 0, 2 * Math.PI);
-    ctx.fillStyle = '#0f172a';
-    ctx.fill();
 }
 
 function createTrendChart(data) {
     const canvas = document.getElementById('trendChart');
     if (!canvas) return;
-    const ctx = canvas.getContext('2d'), w = canvas.width, h = canvas.height;
-    ctx.clearRect(0, 0, w, h);
-    ctx.strokeStyle = '#6366f1';
-    ctx.lineWidth = 4;
-    ctx.beginPath();
-    data.forEach((v, i) => {
-        const x = (w / (data.length - 1)) * i, y = h - (v / 4000) * h;
-        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+
+    if (trendChartInstance) {
+        trendChartInstance.destroy();
+    }
+
+    const ctx = canvas.getContext('2d');
+
+    // Generate mock dates for the trend labels (last 7 days)
+    const labels = Array.from({ length: data.length }, (_, i) => {
+        const d = new Date();
+        d.setDate(d.getDate() - (data.length - 1 - i));
+        return d.toLocaleDateString('en-IN', { weekday: 'short' });
     });
-    ctx.stroke();
+
+    // Create gradient fill
+    const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+    gradient.addColorStop(0, 'rgba(99, 102, 241, 0.5)');
+    gradient.addColorStop(1, 'rgba(99, 102, 241, 0.0)');
+
+    trendChartInstance = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Daily Spending',
+                data: data,
+                borderColor: '#6366f1',
+                backgroundColor: gradient,
+                borderWidth: 3,
+                pointBackgroundColor: '#fff',
+                pointBorderColor: '#6366f1',
+                pointBorderWidth: 2,
+                pointRadius: 4,
+                pointHoverRadius: 6,
+                fill: true,
+                tension: 0.4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                    titleColor: '#fff',
+                    bodyColor: '#cbd5e1',
+                    padding: 12,
+                    cornerRadius: 8,
+                    callbacks: {
+                        label: function (context) {
+                            return ` Spending: ₹${context.raw.toLocaleString()}`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    grid: {
+                        display: false,
+                        drawBorder: false
+                    },
+                    ticks: {
+                        color: '#94a3b8',
+                        font: {
+                            family: 'Inter',
+                            size: 11
+                        }
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.05)',
+                        drawBorder: false
+                    },
+                    ticks: {
+                        color: '#94a3b8',
+                        font: {
+                            family: 'Inter',
+                            size: 11
+                        },
+                        callback: function (value) {
+                            return '₹' + value / 1000 + 'k';
+                        }
+                    }
+                }
+            }
+        }
+    });
 }
 
 async function fetchUserData() {
