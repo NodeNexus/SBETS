@@ -1,0 +1,377 @@
+/* ========================================
+   SBETS FINAL POLISH - JUDGES VERSION
+   Add this last for ultimate polish
+   ======================================== */
+
+/* Fix emoji rendering issues */
+.gpay-action-icon,
+.gpay-avatar,
+.category-btn-emoji,
+.merchant-avatar-large,
+.control-icon,
+.fh-icon,
+.privacy-icon,
+.tracked-icon {
+    font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', sans-serif;
+}
+
+/* Ensure all emojis render properly */
+button,
+span,
+div {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Enhanced phone mockup shadow for depth */
+.phone-mockup {
+    box-shadow: 
+        0 0 0 12px #1a1a1a,
+        0 0 0 14px #333,
+        0 20px 80px rgba(0, 0, 0, 0.4),
+        0 50px 100px rgba(0, 0, 0, 0.3);
+    border-radius: 45px;
+}
+
+/* Make the phone screen content pop */
+.phone-screen {
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhance demo controls card */
+.demo-controls {
+    box-shadow: 
+        0 10px 40px rgba(99, 102, 241, 0.15),
+        0 0 0 1px rgba(99, 102, 241, 0.1);
+    transition: all 0.3s ease;
+}
+
+.demo-controls:hover {
+    box-shadow: 
+        0 15px 60px rgba(99, 102, 241, 0.2),
+        0 0 0 1px rgba(99, 102, 241, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Make feature highlights more prominent */
+.feature-highlight {
+    transition: all 0.3s ease;
+}
+
+.feature-highlight:hover {
+    background: rgba(99, 102, 241, 0.05);
+    transform: translateX(5px);
+}
+
+/* Polish the success screen even more */
+.success-checkmark svg {
+    filter: drop-shadow(0 4px 20px rgba(16, 185, 129, 0.3));
+}
+
+/* Make transaction items more polished */
+.transaction-item {
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.transaction-item:hover {
+    background: rgba(99, 102, 241, 0.03);
+    transform: translateX(5px);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Enhanced category badges */
+.category-badge {
+    font-weight: 600;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+}
+
+/* Make charts more prominent */
+.chart-card {
+    transition: all 0.3s ease;
+}
+
+.chart-card:hover {
+    box-shadow: 0 12px 40px rgba(99, 102, 241, 0.15);
+    transform: translateY(-3px);
+}
+
+/* Polish summary cards */
+.summary-card {
+    background: linear-gradient(135deg, var(--bg-card) 0%, rgba(99, 102, 241, 0.02) 100%);
+    backdrop-filter: blur(10px);
+}
+
+.summary-value {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+}
+
+/* Add subtle glow to active elements */
+.category-btn-emoji.active {
+    box-shadow: 
+        0 8px 24px rgba(99, 102, 241, 0.4),
+        0 0 20px rgba(99, 102, 241, 0.2) !important;
+}
+
+/* Polish the payment button even more */
+.pay-button-new {
+    box-shadow: 
+        0 4px 20px rgba(26, 115, 232, 0.3),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.1);
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.pay-button-new:hover {
+    box-shadow: 
+        0 8px 30px rgba(26, 115, 232, 0.4),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.1),
+        0 0 40px rgba(26, 115, 232, 0.2);
+}
+
+/* Make the hero section even more impactful */
+.hero-title {
+    text-shadow: 0 2px 40px rgba(99, 102, 241, 0.3);
+    letter-spacing: -0.02em;
+}
+
+/* Polish the navbar */
+.navbar {
+    box-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+/* Make problem cards stand out more */
+.problem-card {
+    background: linear-gradient(135deg, var(--bg-card) 0%, rgba(99, 102, 241, 0.03) 100%);
+}
+
+/* Enhanced expense tracked card */
+.expense-tracked-card {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
+    border: 2px solid rgba(16, 185, 129, 0.2);
+    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.15);
+}
+
+.tracked-icon {
+    font-size: 2rem;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    25% {
+        transform: scale(1.1) rotate(-10deg);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.2) rotate(10deg);
+        opacity: 1;
+    }
+    75% {
+        transform: scale(1.1) rotate(-5deg);
+        opacity: 0.9;
+    }
+}
+
+/* Make the QR scanner more realistic */
+.scanner-frame {
+    box-shadow: 
+        inset 0 0 0 2px rgba(99, 102, 241, 0.3),
+        0 0 40px rgba(99, 102, 241, 0.2);
+}
+
+.scan-line {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
+}
+
+/* Polish notification cards */
+.notif-card {
+    transition: all 0.3s ease;
+}
+
+.notif-card:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+    transform: translateX(5px);
+}
+
+/* Make merchant info stand out */
+.merchant-info-v2 {
+    position: relative;
+}
+
+.merchant-info-v2::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #6366f1, transparent);
+}
+
+/* Enhanced amount input */
+#amountInput {
+    text-shadow: 0 2px 10px rgba(26, 115, 232, 0.3);
+}
+
+/* Make footer more polished */
+.footer {
+    border-top: 1px solid rgba(99, 102, 241, 0.1);
+    background: linear-gradient(180deg, var(--bg) 0%, rgba(15, 23, 42, 0.98) 100%);
+}
+
+/* Polish CTA section */
+.cta-section {
+    background: 
+        radial-gradient(circle at 30% 50%, rgba(99, 102, 241, 0.15), transparent 50%),
+        radial-gradient(circle at 70% 50%, rgba(139, 92, 246, 0.15), transparent 50%);
+}
+
+/* Make privacy cards more trustworthy */
+.privacy-card {
+    background: linear-gradient(135deg, var(--bg-card) 0%, rgba(16, 185, 129, 0.02) 100%);
+    border: 1px solid rgba(16, 185, 129, 0.1);
+}
+
+.privacy-card:hover {
+    border-color: rgba(16, 185, 129, 0.3);
+    box-shadow: 0 10px 40px rgba(16, 185, 129, 0.1);
+}
+
+/* Add subtle animations to stats */
+.stat-value {
+    animation: statPulse 3s ease-in-out infinite;
+}
+
+@keyframes statPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+/* Make the brand more prominent */
+.brand-text {
+    font-weight: 900;
+    letter-spacing: -0.5px;
+}
+
+/* Polish control buttons in demo */
+.control-btn {
+    background: linear-gradient(135deg, var(--bg-card) 0%, rgba(99, 102, 241, 0.05) 100%);
+    border: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.control-btn:hover {
+    border-color: rgba(99, 102, 241, 0.3);
+    background: linear-gradient(135deg, var(--bg-card) 0%, rgba(99, 102, 241, 0.1) 100%);
+}
+
+/* Add loading state polish */
+.processing-animation h3 {
+    background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899, #6366f1);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Make transaction details more readable */
+.detail-row {
+    transition: all 0.2s ease;
+    padding: 0.75rem;
+    border-radius: 8px;
+}
+
+.detail-row:hover {
+    background: rgba(99, 102, 241, 0.05);
+}
+
+/* Polish the showcase section */
+.showcase-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.showcase-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.5), transparent);
+}
+
+/* Add depth to feature icons */
+.feature-icon {
+    box-shadow: 
+        0 4px 20px rgba(99, 102, 241, 0.3),
+        inset 0 -2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Make problem icons more impactful */
+.problem-icon {
+    box-shadow: 
+        0 4px 20px currentColor,
+        inset 0 -2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Final touch: Add subtle page load animation */
+body {
+    animation: pageLoad 0.6s ease-out;
+}
+
+@keyframes pageLoad {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Ensure everything looks crisp */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Add print styles for if judges want to print */
+@media print {
+    .navbar,
+    .demo-controls {
+        break-inside: avoid;
+    }
+    
+    .phone-mockup {
+        page-break-inside: avoid;
+    }
+}

@@ -1,0 +1,498 @@
+/* ========================================
+   SBETS ENHANCED STYLES - JUDGE READY
+   Add this AFTER the main styles.css
+   ======================================== */
+
+/* ===== CATEGORY BUTTON ENHANCEMENTS ===== */
+.category-btn-emoji {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 2px solid transparent !important;
+    background: white;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.category-btn-emoji:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background: #f9fafb;
+}
+
+.category-btn-emoji.active {
+    transform: scale(1.05) !important;
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4) !important;
+    border-color: #6366f1 !important;
+    background: linear-gradient(135deg, #e0e7ff 0%, #f3f4f6 100%) !important;
+}
+
+.category-btn-emoji.active::after {
+    content: '✓';
+    position: absolute;
+    bottom: -4px;
+    right: -4px;
+    width: 20px;
+    height: 20px;
+    background: #10b981;
+    color: white;
+    border-radius: 50%;
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+    animation: checkmarkPop 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    font-weight: bold;
+}
+
+@keyframes checkmarkPop {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ===== PAY BUTTON ENHANCEMENTS ===== */
+.pay-button-new {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.pay-button-new::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.pay-button-new:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(26, 115, 232, 0.4);
+}
+
+.pay-button-new:hover::before {
+    width: 500px;
+    height: 500px;
+}
+
+.pay-button-new:active {
+    transform: scale(0.98);
+}
+
+.pay-arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    margin-left: 0.5rem;
+}
+
+.pay-button-new:hover .pay-arrow {
+    transform: translateX(5px);
+}
+
+/* ===== SUCCESS SCREEN ENHANCEMENTS ===== */
+.success-content {
+    animation: successFadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes successFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.expense-tracked-card {
+    animation: slideInRight 0.5s ease 0.4s forwards;
+    opacity: 0;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ===== TRANSACTION ITEMS STAGGER ANIMATION ===== */
+.transaction-item {
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+}
+
+.transaction-item:nth-child(1) { animation-delay: 0.1s; }
+.transaction-item:nth-child(2) { animation-delay: 0.2s; }
+.transaction-item:nth-child(3) { animation-delay: 0.3s; }
+.transaction-item:nth-child(4) { animation-delay: 0.4s; }
+.transaction-item:nth-child(5) { animation-delay: 0.5s; }
+.transaction-item:nth-child(6) { animation-delay: 0.6s; }
+.transaction-item:nth-child(7) { animation-delay: 0.7s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== QR CODE SCAN ENHANCEMENTS ===== */
+#qrCode {
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+#qrCode.scanning {
+    animation: scanPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes scanPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+        box-shadow: 0 0 0 0 rgba(26, 115, 232, 0.4);
+    }
+    50% {
+        transform: scale(1.03);
+        opacity: 0.9;
+        box-shadow: 0 0 0 20px rgba(26, 115, 232, 0);
+    }
+}
+
+#qrCode.scanned {
+    animation: scanSuccess 0.6s ease forwards;
+    border-color: #10b981 !important;
+}
+
+@keyframes scanSuccess {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);
+    }
+}
+
+/* ===== DEMO CONTROLS ENHANCEMENTS ===== */
+.control-btn {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.control-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(99, 102, 241, 0.1);
+    transform: translate(-50%, -50%);
+    transition: width 0.4s, height 0.4s;
+}
+
+.control-btn:hover::before {
+    width: 200px;
+    height: 200px;
+}
+
+.control-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2);
+}
+
+.control-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.control-btn:hover .control-icon {
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* ===== FEATURE CARD REVEAL ANIMATIONS ===== */
+.feature-card,
+.problem-card,
+.privacy-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-card.revealed,
+.problem-card.revealed,
+.privacy-card.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== MERCHANT INFO ANIMATION ===== */
+.merchant-info-v2 {
+    animation: merchantAppear 0.5s ease forwards;
+}
+
+@keyframes merchantAppear {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.merchant-avatar-large {
+    animation: avatarBounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+@keyframes avatarBounce {
+    from {
+        transform: scale(0);
+    }
+    60% {
+        transform: scale(1.1);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+/* ===== AMOUNT INPUT ENHANCEMENT ===== */
+#amountInput {
+    transition: all 0.3s ease;
+}
+
+#amountInput:focus {
+    outline: none;
+    color: #1a73e8;
+}
+
+.amount-input-wrapper {
+    animation: amountFadeIn 0.4s ease 0.2s forwards;
+    opacity: 0;
+}
+
+@keyframes amountFadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* ===== PROCESSING SCREEN ENHANCEMENT ===== */
+.processing-animation {
+    animation: processingPulse 2s ease-in-out infinite;
+}
+
+@keyframes processingPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+.spinner {
+    animation: spin 1s linear infinite, colorShift 3s ease-in-out infinite;
+}
+
+@keyframes colorShift {
+    0%, 100% {
+        border-top-color: #6366f1;
+    }
+    33% {
+        border-top-color: #8b5cf6;
+    }
+    66% {
+        border-top-color: #ec4899;
+    }
+}
+
+/* ===== SUCCESS BUTTON ENHANCEMENTS ===== */
+.success-btn {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.success-btn:hover {
+    transform: translateY(-2px);
+}
+
+.success-btn.primary:hover {
+    box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4);
+}
+
+.success-btn.secondary:hover {
+    background: #f3f4f6;
+}
+
+/* ===== GPAY ACTION BUTTON ENHANCEMENTS ===== */
+.gpay-action-btn {
+    transition: all 0.3s ease;
+}
+
+.gpay-action-btn:active .gpay-action-icon {
+    transform: scale(0.9);
+}
+
+.gpay-action-icon {
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.gpay-action-btn:hover .gpay-action-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* ===== NOTIFICATION BADGE PULSE ===== */
+.gpay-top-bar button span[style*="background:#ef4444"] {
+    animation: notifPulse 2s ease-in-out infinite;
+}
+
+@keyframes notifPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 0.7;
+    }
+}
+
+/* ===== SUMMARY CARD ENHANCEMENTS ===== */
+.summary-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.summary-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(99, 102, 241, 0.15);
+}
+
+/* ===== HERO SECTION ENHANCEMENTS ===== */
+.hero-badge {
+    animation: badgeFloat 3s ease-in-out infinite;
+}
+
+@keyframes badgeFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.hero-cta .btn {
+    animation: ctaFadeIn 0.6s ease forwards;
+    opacity: 0;
+}
+
+.hero-cta .btn:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.hero-cta .btn:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+@keyframes ctaFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== TOAST NOTIFICATION ANIMATION ===== */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(10px);
+    }
+    10%, 90% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(10px);
+    }
+}
+
+/* ===== BALANCE AMOUNT NUMBER ANIMATION ===== */
+.balance-amount {
+    transition: all 0.3s ease;
+}
+
+/* ===== SMOOTH SCROLL BEHAVIOR ===== */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ===== MOBILE RESPONSIVENESS ENHANCEMENTS ===== */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .category-btn-emoji {
+        width: 48px;
+        height: 48px;
+        font-size: 1.5rem;
+    }
+}
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

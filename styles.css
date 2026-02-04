@@ -106,7 +106,8 @@ h4 {
 }
 
 /* 3. Button Alignment */
-.navbar .btn {
+/* 3. Button Alignment */
+.nav-cta {
     flex: 1;
     display: flex;
     justify-content: flex-end;
