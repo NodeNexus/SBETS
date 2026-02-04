@@ -35,18 +35,73 @@ app.get('/api/transactions', (req, res) => {
 });
 
 app.get('/api/analytics', (req, res) => {
+    // dynamically calculate summary
+    const totalSpent = transactions.reduce((sum, t) => sum + t.amount, 0);
+    const budgetTotal = 40000;
+    const remaining = budgetTotal - totalSpent;
+
+    // Find top category
+    const catTotals = {};
+    transactions.forEach(t => {
+        catTotals[t.category] = (catTotals[t.category] || 0) + t.amount;
+    });
+    let topCategory = "None";
+    let topCatAmount = 0;
+    for (const [cat, amt] of Object.entries(catTotals)) {
+        if (amt > topCatAmount) {
+            topCatAmount = amt;
+            topCategory = cat;
+        }
+    }
+
     res.json({
         success: true,
         data: {
+            summary: {
+                totalSpent: totalSpent,
+                budgetRemaining: remaining,
+                txnCount: transactions.length,
+                topCategory: topCategory,
+                topCatAmount: topCatAmount
+            },
             categoryData: [
-                { category: 'Food', amount: 8450, color: '#f59e0b' },
-                { category: 'Transport', amount: 5200, color: '#3b82f6' },
-                { category: 'Shopping', amount: 6300, color: '#8b5cf6' },
-                { category: 'Bills', amount: 3150, color: '#10b981' }
+                { category: 'Food', amount: catTotals['Food'] || 0, color: '#f59e0b' },
+                { category: 'Transport', amount: catTotals['Transport'] || 0, color: '#3b82f6' },
+                { category: 'Shopping', amount: catTotals['Shopping'] || 0, color: '#8b5cf6' },
+                { category: 'Bills', amount: catTotals['Bills'] || 0, color: '#10b981' }
             ],
-            trendData: [1200, 1800, 1500, 2200, 1900, 2400, 2100]
+            trendData: [1200, 1800, 1500, 2200, 1900, 2400, 2100] // Mock trend data
         }
     });
+});
+
+app.post('/api/scan', (req, res) => {
+    // Simulate QR resolution
+    setTimeout(() => {
+        // Return a random merchant
+        const merchants = [
+            { name: "Pizza Paradise", upi: "pizza.paradise@okicici", avatar: "🍕", category: "Food" },
+            { name: "Starbucks", upi: "starbucks.store@okhdfc", avatar: "☕", category: "Food" },
+            { name: "Uber", upi: "uber.india@okaxis", avatar: "🚗", category: "Transport" },
+            { name: "D-Mart", upi: "dmart.retail@oksbi", avatar: "🛒", category: "Shopping" }
+        ];
+        const randomMerchant = merchants[Math.floor(Math.random() * merchants.length)];
+
+        res.json({
+            success: true,
+            data: randomMerchant
+        });
+    }, 800);
+});
+
+app.post('/api/add-money', (req, res) => {
+    const { amount } = req.body;
+    if (amount && amount > 0) {
+        userData.balance += parseFloat(amount);
+        res.json({ success: true, newBalance: userData.balance });
+    } else {
+        res.status(400).json({ success: false, message: "Invalid amount" });
+    }
 });
 
 app.post('/api/pay', (req, res) => {
