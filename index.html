@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBETS - Smart Built-in Expense Tracking System</title>
+    <meta name="description"
+        content="Revolutionary UPI-integrated expense tracking system with zero friction, complete privacy, and intelligent financial insights">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+                    <circle cx="20" cy="20" r="18" stroke="url(#gradient1)" stroke-width="2" />
+                    <path d="M20 10 L20 30 M10 20 L30 20" stroke="url(#gradient1)" stroke-width="2"
+                        stroke-linecap="round" />
+                    <defs>
+                        <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <header>
+                                <nav class="navbar">
+                                    <div class="container-fluid">
+                                        <div class="nav-brand">
+                                            <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+                                                <circle cx="20" cy="20" r="18" stroke="url(#gradient1)"
+                                                    stroke-width="2" />
+                                                <path d="M20 10 L20 30 M10 20 L30 20" stroke="url(#gradient1)"
+                                                    stroke-width="2" stroke-linecap="round" />
+                                                <defs>
+                                                    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                        <stop offset="0%" style="stop-color:#6366f1" />
+                                                        <stop offset="100%" style="stop-color:#8b5cf6" />
+                                                    </linearGradient>
+                                                </defs>
+                                            </svg>
+                                            <span class="brand-text">SBETS</span>
+                                        </div>
+                                        <div class="nav-links">
+                                            <a href="#hero" class="nav-link">Home</a>
+                                            <a href="#features" class="nav-link">Features</a>
+                                            <a href="#demo" class="nav-link active">Test Feature</a>
+                                            <a href="javascript:void(0)" onclick="showDashboard()"
+                                                class="nav-link">Analytics</a>
+                                        </div>
+                                        <a href="#demo" class="btn btn-primary" onclick="startTestFeatureFlow()">
+                                            Try Demo <span class="btn-icon">→</span>
+                                        </a>
+                                    </div>
+                                </nav>
+                            </header>
+
+                            <!-- Hero Section -->
+                            <section class="hero">
+                                <div class="hero-bg"></div>
+                                <div class="container">
+                                    <div class="hero-content">
+                                        <div class="hero-badge">
+                                            <span class="badge-dot"></span>
+                                            FinTech Innovation • UPI Integration
+                                        </div>
+                                        <h1 class="hero-title">
+                                            Track Every Rupee,<br />
+                                            <span class="gradient-text">Without Lifting a Finger</span>
+                                        </h1>
+                                        <p class="hero-subtitle">
+                                            Revolutionary expense tracking built directly into your UPI payments.
+                                            Zero manual entry. Complete privacy. 100% accuracy.
+                                        </p>
+                                        <div class="hero-cta">
+                                            <button class="btn btn-primary btn-large" onclick="scrollToDemo()">
+                                                <span>Experience Demo</span>
+                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path d="M10 3L9 4L15 10L9 16L10 17L17 10L10 3Z" />
+                                                </svg>
+                                            </button>
+                                            <button class="btn btn-secondary btn-large" onclick="scrollToFeatures()">
+                                                Learn More
+                                            </button>
+                                        </div>
+                                        <div class="hero-stats">
+                                            <div class="stat-item">
+                                                <div class="stat-value">0</div>
+                                                <div class="stat-label">Manual Entry</div>
+                                            </div>
+                                            <div class="stat-item">
+                                                <div class="stat-value">100%</div>
+                                                <div class="stat-label">Accuracy</div>
+                                            </div>
+                                            <div class="stat-item">
+                                                <div class="stat-value">∞</div>
+                                                <div class="stat-label">Privacy</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Problem Statement -->
+                            <section class="problem-section">
+                                <div class="container">
+                                    <h2 class="section-title">The Problem with Traditional Expense Tracking</h2>
+                                    <div class="problem-grid">
+                                        <div class="problem-card">
+                                            <div class="problem-icon"
+                                                style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);">
+                                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor">
+                                                    <path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                                        stroke-width="2" stroke-linecap="round" />
+                                                </svg>
+                                            </div>
+                                            <h3>High Friction</h3>
+                                            <p>Manual data entry leads to 80%+ abandonment rates. Users simply won't
+                                                track expenses if it
+                                                requires extra effort.</p>
+                                        </div>
+                                        <div class="problem-card">
+                                            <div class="problem-icon"
+                                                style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor">
+                                                    <path
+                                                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                                                        stroke-width="2" stroke-linecap="round" />
+                                                </svg>
+                                            </div>
+                                            <h3>Privacy Concerns</h3>
+                                            <p>Traditional trackers require SMS permissions, exposing sensitive OTPs and
+                                                bank alerts to
+                                                third-party apps.</p>
+                                        </div>
+                                        <div class="problem-card">
+                                            <div class="problem-icon"
+                                                style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);">
+                                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor">
+                                                    <path
+                                                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                                                        stroke-width="2" stroke-linecap="round" />
+                                                </svg>
+                                            </div>
+                                            <h3>Fragmented Data</h3>
+                                            <p>Spending across categories remains scattered, making it impossible to
+                                                understand your true
+                                                financial picture.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Features Section -->
+                            <section id="features" class="features-section">
+                                <div class="container">
+                                    <div class="section-header">
+                                        <h2 class="section-title">Intelligent Features</h2>
+                                        <p class="section-subtitle">Built for the modern digital payment ecosystem</p>
+                                    </div>
+
+                                    <div class="features-grid">
+                                        <!-- Feature 1 -->
+                                        <div class="feature-card">
+                                            <div class="feature-icon">
+                                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor">
+                                                    <path d="M12 4v16m8-8H4" stroke-width="2" stroke-linecap="round" />
+                                                </svg>
+                                            </div>
+                                            <h3>QR-Based Auto-Categorization</h3>
+                                            <p>Vendors embed category metadata in QR codes. Scan and pay -
+                                                categorization happens automatically.
+                                            </p>
+                                            <div class="feature-tag">Zero Effort</div>
+                                        </div>
+
+                                        <!-- Feature 2 -->
+                                        <div class="feature-card">
+                                            <div class="feature-icon">
+                                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor">
+                                                    <path
+                                                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
+                                                        stroke-width="2" stroke-linecap="round" />
+                                                </svg>
+                                            </div>
+                                            <h3>Mandatory Category Selection</h3>
+                                            <p>No "uncategorized" expenses. Every transaction requires a category before
+                                                completion.</p>
+                                            <div class="feature-tag">100% Coverage</div>
+                                        </div>
+
+                                        <!-- Feature 3 -->
+                                        <div class="feature-card">
+                                            <div class="feature-icon">
+                                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor">
+                                                    <path
+                                                        d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                                                        stroke-width="2" stroke-linecap="round" />
+                                                </svg>
+                                            </div>
+                                            <h3>AI Learning Engine</h3>
+                                            <p>System learns from your corrections and automatically applies rules for
+                                                future payments.</p>
+                                            <div class="feature-tag">Smart AI</div>
+                                        </div>
+
+                                        <!-- Feature 4 -->
+                                        <div class="feature-card">
+                                            <div class="feature-icon">
+                                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor">
+                                                    <path
+                                                        d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                                        stroke-width="2" stroke-linecap="round" />
+                                                </svg>
+                                            </div>
+                                            <h3>Predictive Budget Alerts</h3>
+                                            <p>AI warns you before you exceed limits based on current spending pace and
+                                                patterns.</p>
+                                            <div class="feature-tag">Proactive</div>
+                                        </div>
+
+                                        <!-- Feature 5 -->
+                                        <div class="feature-card">
+                                            <div class="feature-icon">
+                                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor">
+                                                    <path
+                                                        d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"
+                                                        stroke-width="2" stroke-linecap="round" />
+                                                </svg>
+                                            </div>
+                                            <h3>Offline-First Privacy</h3>
+                                            <p>All data stored locally in encrypted containers. No cloud uploads. Your
+                                                data stays yours.</p>
+                                            <div class="feature-tag">Secure</div>
+                                        </div>
+
+                                        <!-- Feature 6 -->
+                                        <div class="feature-card">
+                                            <div class="feature-icon">
+                                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor">
+                                                    <path
+                                                        d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"
+                                                        stroke-width="2" stroke-linecap="round" />
+                                                </svg>
+                                            </div>
+                                            <h3>Visual Analytics Dashboard</h3>
+                                            <p>Beautiful charts, trend analysis, and actionable insights at your
+                                                fingertips.</p>
+                                            <div class="feature-tag">Insightful</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- App Showcase Section -->
+                            <section class="showcase-section">
+                                <div class="container">
+                                    <div class="section-header">
+                                        <h2 class="section-title">Complete Control</h2>
+                                        <p class="section-subtitle">From payment to analysis in one seamless flow</p>
+                                    </div>
+                                    <div class="showcase-image-container">
+                                        <img src="assets/showcase.png" alt="SBETS App Features" class="showcase-img">
+                                        <div class="showcase-overlay"></div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Demo Section -->
+                            <section id="demo" class="demo-section">
+                                <div class="container">
+                                    <div class="section-header">
+                                        <h2 class="section-title">Experience the Flow</h2>
+                                        <p class="section-subtitle">Interactive demo showing SBETS in action</p>
+                                    </div>
+
+                                    <div class="demo-container">
+                                        <div class="phone-mockup">
+                                            <div class="phone-notch"></div>
+                                            <div class="phone-screen" id="phoneScreen">
+                                                <!-- Home Screen -->
+                                                <div class="upi-screen active" id="homeScreen">
+                                                    <div class="upi-header">
+                                                        <div class="profile-section">
+                                                            <div class="profile-pic">👤</div>
+                                                            <div class="profile-info">
+                                                                <span class="greeting">Good afternoon</span>
+                                                                <span class="username">Rahul Sharma</span>
+                                                            </div>
+                                                        </div>
+                                                        <button class="notification-btn">🔔</button>
+                                                    </div>
+
+                                                    <div class="balance-card">
+                                                        <div class="balance-label">UPI Balance</div>
+                                                        <div class="balance-amount">₹12,450.00</div>
+                                                        <div class="balance-actions">
+                                                            <button class="balance-action-btn">
+                                                                <span class="action-icon">💳</span>
+                                                                <span>Add Money</span>
+                                                            </button>
+                                                            <button class="balance-action-btn">
+                                                                <span class="action-icon">📊</span>
+                                                                <span>Analytics</span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="quick-actions">
+                                                        <button class="quick-action-btn" onclick="startQRScan()">
+                                                            <div class="qa-icon">📷</div>
+                                                            <span>Scan QR</span>
+                                                        </button>
+                                                        <button class="quick-action-btn">
+                                                            <div class="qa-icon">👤</div>
+                                                            <span>Send to Contact</span>
+                                                        </button>
+                                                        <button class="quick-action-btn">
+                                                            <div class="qa-icon">📱</div>
+                                                            <span>Phone</span>
+                                                        </button>
+                                                        <button class="quick-action-btn">
+                                                            <div class="qa-icon">🏦</div>
+                                                            <span>Bank</span>
+                                                        </button>
+                                                    </div>
+
+                                                    <div class="recent-section">
+                                                        <h3>Recent Transactions</h3>
+                                                        <div class="recent-transaction">
+                                                            <div class="rt-icon">🛒</div>
+                                                            <div class="rt-details">
+                                                                <div class="rt-name">Amazon</div>
+                                                                <div class="rt-time">Today, 10:30 AM</div>
+                                                            </div>
+                                                            <div class="rt-amount">-₹1,250</div>
+                                                        </div>
+                                                        <div class="recent-transaction">
+                                                            <div class="rt-icon">☕</div>
+                                                            <div class="rt-details">
+                                                                <div class="rt-name">Starbucks</div>
+                                                                <div class="rt-time">Yesterday, 4:15 PM</div>
+                                                            </div>
+                                                            <div class="rt-amount">-₹320</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- QR Scanner Screen -->
+                                                <div class="upi-screen" id="qrScreen">
+                                                    <div class="scanner-header">
+                                                        <button class="back-btn-white" onclick="goToHome()">←</button>
+                                                        <h3>Scan QR Code</h3>
+                                                        <button class="gallery-btn">🖼️</button>
+                                                    </div>
+                                                    <div class="scanner-container">
+                                                        <div class="scanner-frame">
+                                                            <div class="scanner-corner tl"></div>
+                                                            <div class="scanner-corner tr"></div>
+                                                            <div class="scanner-corner bl"></div>
+                                                            <div class="scanner-corner br"></div>
+                                                            <div class="scan-line"></div>
+                                                        </div>
+                                                        <div class="qr-code" id="qrCode">
+                                                            <div class="qr-pattern"></div>
+                                                        </div>
+                                                    </div>
+                                                    <p class="scanner-hint">Point camera at QR code</p>
+                                                    <button class="demo-scan-btn" onclick="simulateScan()">Simulate
+                                                        Scan</button>
+                                                </div>
+
+                                                <!-- Payment Details Screen (Compact) -->
+                                                <div class="upi-screen" id="paymentScreen"
+                                                    style="display: none; flex-direction: column; height: 100%; padding: 1.5rem;">
+                                                    <div class="payment-header"
+                                                        style="padding: 0; margin-bottom: 1.5rem; border: none; background: transparent;">
+                                                        <button class="back-btn-dark" onclick="goToHome()">←</button>
+                                                        <h3>Pay</h3>
+                                                        <button class="menu-btn">⋮</button>
+                                                    </div>
+
+                                                    <!-- Compact Merchant Info -->
+                                                    <div class="merchant-card compact"
+                                                        style="padding: 0; margin-bottom: 2rem; background: transparent; text-align: center; box-shadow: none;">
+                                                        <div class="merchant-avatar-large"
+                                                            style="width: 60px; height: 60px; font-size: 1.8rem; margin: 0 auto 0.5rem;">
+                                                            🍕</div>
+                                                        <h4 style="font-size: 1.1rem; margin-bottom: 0.2rem;">Pizza
+                                                            Paradise</h4>
+                                                        <div class="merchant-upi" style="font-size: 0.85rem;">
+                                                            pizza.paradise@okicici</div>
+                                                    </div>
+
+                                                    <div class="payment-amount-section compact"
+                                                        style="background: white; border-radius: 20px; padding: 1.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.05); flex: 1; display: flex; flex-direction: column;">
+                                                        <label
+                                                            style="text-align: center; display: block; margin-bottom: 1rem; font-weight: 600; color: #64748b;">Enter
+                                                            Amount</label>
+                                                        <div class="amount-input-large"
+                                                            style="margin-bottom: 1.5rem; justify-content: center; background: #f8fafc; border: none;">
+                                                            <span class="currency-large">₹</span>
+                                                            <input type="number" id="amountInput" value="450"
+                                                                placeholder="0" style="width: 120px; text-align: left;">
+                                                        </div>
+
+                                                        <div class="category-section-compact"
+                                                            style="margin-bottom: 2rem;">
+                                                            <div class="category-header-small"
+                                                                style="text-align: center; margin-bottom: 0.8rem;">
+                                                                <label style="font-size: 0.85rem;">Select
+                                                                    Category</label>
+                                                            </div>
+                                                            <div class="category-grid-compact"
+                                                                style="display: flex; justify-content: center; gap: 0.8rem;">
+                                                                <button class="category-btn-emoji active"
+                                                                    data-category="Food">🍔</button>
+                                                                <button class="category-btn-emoji"
+                                                                    data-category="Entertainment">🎬</button>
+                                                                <button class="category-btn-emoji"
+                                                                    data-category="Shopping">�️</button>
+                                                                <button class="category-btn-emoji"
+                                                                    data-category="Bills">⚡</button>
+                                                            </div>
+                                                        </div>
+
+                                                        <div style="margin-top: auto;">
+                                                            <button class="pay-button-new full-width"
+                                                                onclick="processPayment()"
+                                                                style="margin: 0; padding: 1rem;">
+                                                                <span>Pay Now</span>
+                                                                <span class="pay-arrow">→</span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Processing Screen -->
+                                                <div class="upi-screen" id="processingScreen">
+                                                    <div class="processing-animation">
+                                                        <div class="spinner"></div>
+                                                        <h3>Processing Payment...</h3>
+                                                        <p>Please wait</p>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Success Screen -->
+                                                <div class="upi-screen" id="successScreen">
+                                                    <div class="success-content">
+                                                        <div class="success-checkmark">
+                                                            <svg class="checkmark" viewBox="0 0 52 52">
+                                                                <circle class="checkmark-circle" cx="26" cy="26" r="25"
+                                                                    fill="none" />
+                                                                <path class="checkmark-check" fill="none"
+                                                                    d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                                                            </svg>
+                                                        </div>
+                                                        <h3>Payment Successful!</h3>
+                                                        <div class="success-amount">₹450.00</div>
+                                                        <p class="success-merchant">Paid to Pizza Paradise</p>
+
+                                                        <div class="transaction-details">
+                                                            <div class="detail-row">
+                                                                <span>Transaction ID</span>
+                                                                <span>T2026020413350001</span>
+                                                            </div>
+                                                            <div class="detail-row">
+                                                                <span>Date & Time</span>
+                                                                <span>Feb 4, 2026 • 1:35 PM</span>
+                                                            </div>
+                                                            <div class="detail-row">
+                                                                <span>UPI Ref ID</span>
+                                                                <span>402613350001</span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="expense-tracked-card">
+                                                            <div class="tracked-icon">✨</div>
+                                                            <div class="tracked-content">
+                                                                <strong>Expense Auto-Tracked!</strong>
+                                                                <p>Category: Food & Dining • Personal</p>
+                                                                <p class="budget-info">₹2,050 remaining in Food budget
+                                                                </p>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="success-actions">
+                                                            <button class="success-btn secondary"
+                                                                onclick="goToHome()">Done</button>
+                                                            <button class="success-btn primary"
+                                                                onclick="showDashboard()">View
+                                                                Analytics</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="demo-controls">
+                                            <h3>Interactive Demo Controls</h3>
+                                            <p>Click through the payment flow to see SBETS in action</p>
+                                            <div class="control-buttons">
+                                                <button class="control-btn" onclick="goToHome()">
+                                                    <span class="control-icon">🏠</span>
+                                                    <span>Home</span>
+                                                </button>
+                                                <button class="control-btn" onclick="startQRScan()">
+                                                    <span class="control-icon">📷</span>
+                                                    <span>Scan QR</span>
+                                                </button>
+                                                <button class="control-btn" onclick="simulateScan()">
+                                                    <span class="control-icon">💳</span>
+                                                    <span>Payment</span>
+                                                </button>
+                                                <button class="control-btn" onclick="processPayment()">
+                                                    <span class="control-icon">✓</span>
+                                                    <span>Complete</span>
+                                                </button>
+                                            </div>
+                                            <div class="demo-features">
+                                                <div class="feature-highlight">
+                                                    <div class="fh-icon">🎯</div>
+                                                    <div class="fh-text">
+                                                        <strong>Zero Friction</strong>
+                                                        <p>Category auto-detected from merchant QR code</p>
+                                                    </div>
+                                                </div>
+                                                <div class="feature-highlight">
+                                                    <div class="fh-icon">🔒</div>
+                                                    <div class="fh-text">
+                                                        <strong>Complete Privacy</strong>
+                                                        <p>All data stored locally, no cloud uploads</p>
+                                                    </div>
+                                                </div>
+                                                <div class="feature-highlight">
+                                                    <div class="fh-icon">📊</div>
+                                                    <div class="fh-text">
+                                                        <strong>Real-time Insights</strong>
+                                                        <p>Instant budget tracking and spending alerts</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Dashboard Section -->
+                            <section id="dashboard" class="dashboard-section">
+                                <div class="container-wide">
+                                    <div class="section-header">
+                                        <h2 class="section-title">Your Financial Command Center</h2>
+                                        <p class="section-subtitle">Real-time insights into your spending patterns</p>
+                                    </div>
+
+                                    <div class="dashboard-container">
+                                        <!-- Summary Cards -->
+                                        <div class="summary-grid">
+                                            <div class="summary-card">
+                                                <div class="summary-header">
+                                                    <span class="summary-label">Total Spent</span>
+                                                    <span class="summary-period">This Month</span>
+                                                </div>
+                                                <div class="summary-value">₹24,580</div>
+                                                <div class="summary-change negative">
+                                                    <span>↑ 12%</span> vs last month
+                                                </div>
+                                            </div>
+
+                                            <div class="summary-card">
+                                                <div class="summary-header">
+                                                    <span class="summary-label">Budget Remaining</span>
+                                                    <span class="summary-period">Feb 2026</span>
+                                                </div>
+                                                <div class="summary-value">₹15,420</div>
+                                                <div class="summary-change positive">
+                                                    <span>↓ 38%</span> of budget used
+                                                </div>
+                                            </div>
+
+                                            <div class="summary-card">
+                                                <div class="summary-header">
+                                                    <span class="summary-label">Transactions</span>
+                                                    <span class="summary-period">Last 7 Days</span>
+                                                </div>
+                                                <div class="summary-value">47</div>
+                                                <div class="summary-change neutral">
+                                                    <span>→ 6.7</span> avg per day
+                                                </div>
+                                            </div>
+
+                                            <div class="summary-card">
+                                                <div class="summary-header">
+                                                    <span class="summary-label">Top Category</span>
+                                                    <span class="summary-period">This Month</span>
+                                                </div>
+                                                <div class="summary-value">🍔 Food</div>
+                                                <div class="summary-change">
+                                                    ₹8,450 spent
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Charts Section -->
+                                        <div class="charts-grid">
+                                            <div class="chart-card">
+                                                <div class="chart-header">
+                                                    <h3>Spending by Category</h3>
+                                                    <select class="chart-filter">
+                                                        <option>This Month</option>
+                                                        <option>Last Month</option>
+                                                        <option>Last 3 Months</option>
+                                                    </select>
+                                                </div>
+                                                <div class="chart-content">
+                                                    <canvas id="categoryChart"></canvas>
+                                                </div>
+                                            </div>
+
+                                            <div class="chart-card">
+                                                <div class="chart-header">
+                                                    <h3>Daily Spending Trend</h3>
+                                                    <select class="chart-filter">
+                                                        <option>Last 7 Days</option>
+                                                        <option>Last 30 Days</option>
+                                                        <option>Last 90 Days</option>
+                                                    </select>
+                                                </div>
+                                                <div class="chart-content">
+                                                    <canvas id="trendChart"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Recent Transactions -->
+                                        <div class="transactions-card">
+                                            <div class="transactions-header">
+                                                <h3>Recent Transactions</h3>
+                                                <button class="export-btn">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                        stroke="currentColor">
+                                                        <path
+                                                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                                                            stroke-width="2" stroke-linecap="round" />
+                                                    </svg>
+                                                    Export CSV
+                                                </button>
+                                            </div>
+                                            <div class="transactions-list" id="transactionsList">
+                                                <!-- Populated by JS -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Privacy Section -->
+                            <section id="privacy" class="privacy-section">
+                                <div class="container">
+                                    <div class="section-header">
+                                        <h2 class="section-title">Privacy-First Architecture</h2>
+                                        <p class="section-subtitle">Your financial data belongs to you, and only you</p>
+                                    </div>
+
+                                    <div class="privacy-grid">
+                                        <div class="privacy-card">
+                                            <div class="privacy-icon">🔒</div>
+                                            <h3>Offline-First Storage</h3>
+                                            <p>All expense data is stored locally on your device in encrypted
+                                                containers. No cloud uploads by
+                                                default.</p>
+                                        </div>
+                                        <div class="privacy-card">
+                                            <div class="privacy-icon">🚫</div>
+                                            <h3>No SMS Permissions</h3>
+                                            <p>Unlike traditional trackers, SBETS never requests access to your SMS,
+                                                protecting your OTPs and
+                                                bank alerts.</p>
+                                        </div>
+                                        <div class="privacy-card">
+                                            <div class="privacy-icon">🛡️</div>
+                                            <h3>Zero Vendor Tracking</h3>
+                                            <p>Vendors provide category data but receive nothing about your budget or
+                                                spending history.</p>
+                                        </div>
+                                        <div class="privacy-card">
+                                            <div class="privacy-icon">📤</div>
+                                            <h3>Data Portability</h3>
+                                            <p>Export your financial data anytime in PDF or CSV format for tax filing or
+                                                personal analysis.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- CTA Section -->
+                            <section class="cta-section">
+                                <div class="container">
+                                    <div class="cta-content">
+                                        <h2>Ready to Transform Your Financial Awareness?</h2>
+                                        <p>Join the revolution in frictionless expense tracking</p>
+                                        <div class="cta-buttons">
+                                            <button class="btn btn-primary btn-large">
+                                                Request Early Access
+                                            </button>
+                                            <button class="btn btn-secondary btn-large">
+                                                View Documentation
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Footer -->
+                            <footer class="footer">
+                                <div class="container">
+                                    <div class="footer-content">
+                                        <div class="footer-brand">
+                                            <div class="nav-brand">
+                                                <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+                                                    <circle cx="20" cy="20" r="18" stroke="url(#gradient2)"
+                                                        stroke-width="2" />
+                                                    <path d="M20 10 L20 30 M10 20 L30 20" stroke="url(#gradient2)"
+                                                        stroke-width="2" stroke-linecap="round" />
+                                                    <defs>
+                                                        <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%"
+                                                            y2="100%">
+                                                            <stop offset="0%" style="stop-color:#6366f1" />
+                                                            <stop offset="100%" style="stop-color:#8b5cf6" />
+                                                        </linearGradient>
+                                                    </defs>
+                                                </svg>
+                                                <span class="brand-text">SBETS</span>
+                                            </div>
+                                            <p>Smart Built-in Expense Tracking System</p>
+                                        </div>
+                                        <div class="footer-links">
+                                            <div class="footer-column">
+                                                <h4>Product</h4>
+                                                <a href="#features">Features</a>
+                                                <a href="#demo">Demo</a>
+                                                <a href="#dashboard">Dashboard</a>
+                                            </div>
+                                            <div class="footer-column">
+                                                <h4>Company</h4>
+                                                <a href="#">About</a>
+                                                <a href="#">Blog</a>
+                                                <a href="#">Careers</a>
+                                            </div>
+                                            <div class="footer-column">
+                                                <h4>Resources</h4>
+                                                <a href="#">Documentation</a>
+                                                <a href="#privacy">Privacy</a>
+                                                <a href="#">Support</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="footer-bottom">
+                                        <p>&copy; 2026 SBETS. All rights reserved.</p>
+                                        <div class="footer-legal">
+                                            <a href="#">Privacy Policy</a>
+                                            <a href="#">Terms of Service</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </footer>
+
+                            <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+                            <script src="script.js"></script>
+</body>
+
+</html>
