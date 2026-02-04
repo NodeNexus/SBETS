@@ -452,6 +452,8 @@ h4 {
     border-radius: 12px;
     display: block;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    animation: float 6s ease-in-out infinite;
+    animation-delay: 1s;
 }
 
 .showcase-overlay {
@@ -478,6 +480,21 @@ h4 {
     align-items: flex-start;
 }
 
+/* Floating Animation */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
 /* Phone Mockup */
 .phone-mockup {
     background: linear-gradient(145deg, #1e293b, #0f172a);
@@ -488,6 +505,7 @@ h4 {
     border: 3px solid #334155;
     position: sticky;
     top: 100px;
+    animation: float 6s ease-in-out infinite;
 }
 
 .phone-notch {
@@ -768,17 +786,22 @@ html {
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: 1rem;
-    background: white;
-    border-radius: 12px;
-    margin-bottom: 0.75rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 1rem 0;
+    /* Adjusted padding */
+    background: transparent;
+    /* Remove white box */
+    border-radius: 0;
+    margin-bottom: 0.5rem;
+    box-shadow: none;
+    /* Remove shadow */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .rt-icon {
     width: 44px;
     height: 44px;
-    background: linear-gradient(135deg, #f0f9ff, #dbeafe);
+    background: rgba(255, 255, 255, 0.1);
+    /* Darker semi-transparent bg */
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -792,18 +815,20 @@ html {
 
 .rt-name {
     font-weight: 600;
-    color: #0f172a;
+    color: #ffffff !important;
+    /* White text for dark bg */
     font-size: 0.9rem;
 }
 
 .rt-time {
     font-size: 0.75rem;
-    color: #64748b;
+    color: #94a3b8 !important;
+    /* Light gray text */
 }
 
 .rt-amount {
     font-weight: 700;
-    color: #ef4444;
+    color: #ffffff;
     font-size: 0.95rem;
 }
 
@@ -1761,14 +1786,22 @@ html {
     font-size: 1.5rem;
 }
 
+.transaction-details {
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
 .transaction-details h4 {
-    color: var(--white);
+    color: #ffffff !important;
+    /* Force White */
     font-size: 1rem;
     margin-bottom: 0.25rem;
 }
 
 .transaction-details p {
-    color: var(--text-muted);
+    color: #94a3b8 !important;
+    /* Force Gray */
     font-size: 0.85rem;
 }
 
