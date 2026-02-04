@@ -101,20 +101,15 @@ h4 {
     gap: 2rem;
     align-items: center;
     justify-content: center;
-    position: static;
-    transform: none;
-    /* Remove previous centering hack */
+    flex: 1;
+    /* Center space */
 }
 
 /* 3. Button Alignment */
-/* This targets the button inside navbar container to push it right */
 .navbar .btn {
     flex: 1;
-    /* Match the brand flex to balance the center */
+    display: flex;
     justify-content: flex-end;
-    /* Align internal text/icon to right if needed */
-    max-width: fit-content;
-    margin-left: auto;
 }
 
 .nav-link {
@@ -509,9 +504,15 @@ h4 {
 .phone-screen {
     background: #f8fafc;
     border-radius: 35px;
-    height: 720px;
+    width: 100%;
+    aspect-ratio: 9/16;
+    height: auto;
+    max-height: 700px;
     overflow: hidden;
+    /* Prevent scrolling */
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 /* UPI Screens */
@@ -524,29 +525,89 @@ h4 {
     background: #f8fafc;
     display: none;
     flex-direction: column;
-    animation: slideIn 0.3s ease-out;
-    overflow-y: auto;
+    overflow-y: hidden;
+    /* User requested no scrolling */
     scrollbar-width: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .upi-screen::-webkit-scrollbar {
     display: none;
 }
 
-.upi-screen.active {
-    display: flex;
+/* Global Smoothing & Animations */
+html {
+    scroll-behavior: smooth;
 }
 
-@keyframes slideIn {
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 20px);
+    }
+
+    15% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+
+    85% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -20px);
+    }
+}
+
+@keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateX(20px);
+        transform: translateY(20px);
     }
 
     to {
         opacity: 1;
-        transform: translateX(0);
+        transform: translateY(0);
     }
+}
+
+/* Fix for History Overlay in demo */
+#historyOverlay {
+    z-index: 100;
+}
+
+.history-item {
+    animation: fadeInUp 0.4s ease forwards;
+}
+
+/* Micro-interactions */
+.btn:active,
+.gpay-action-btn:active {
+    transform: scale(0.95);
+}
+
+.gpay-action-icon {
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.gpay-action-btn:hover .gpay-action-icon {
+    transform: scale(1.1) rotate(5deg);
 }
 
 /* Home Screen */
@@ -1049,11 +1110,18 @@ h4 {
 .amount-input-large input {
     border: none;
     background: none;
-    font-size: 2rem;
-    font-weight: 700;
-    color: #0f172a;
+    font-size: 3.5rem;
+    /* Larger for better visibility */
+    font-weight: 800;
+    color: #1a73e8;
+    /* GPay blue for the amount */
     width: 100%;
     outline: none;
+    text-align: center;
+}
+
+.amount-input-large input::placeholder {
+    color: #cbd5e1;
 }
 
 .category-section-new {

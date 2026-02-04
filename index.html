@@ -148,93 +148,86 @@
                 <p class="section-subtitle">Built for the modern digital payment ecosystem</p>
             </div>
 
-            <div class="features-grid">
-                <!-- Feature 1 -->
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <div class="features-tabs"
+                style="display:flex; justify-content:center; gap:1rem; margin-bottom:3rem; flex-wrap:wrap;">
+                <button class="feature-tab active" onclick="switchFeatureTab('core', this)"
+                    style="padding:0.75rem 1.5rem; border-radius:20px; border:none; font-weight:600; cursor:pointer; background:#6366f1; color:white;">Core
+                    System</button>
+                <button class="feature-tab" onclick="switchFeatureTab('smart', this)"
+                    style="padding:0.75rem 1.5rem; border-radius:20px; border:1px solid #e2e8f0; font-weight:600; cursor:pointer; background:white; color:#64748b;">Intelligence</button>
+                <button class="feature-tab" onclick="switchFeatureTab('control', this)"
+                    style="padding:0.75rem 1.5rem; border-radius:20px; border:1px solid #e2e8f0; font-weight:600; cursor:pointer; background:white; color:#64748b;">Control
+                    & Privacy</button>
+            </div>
+
+            <div class="features-grid" id="featuresGrid">
+                <!-- Core Features -->
+                <div class="feature-card core-feat">
+                    <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor">
+                            <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"
+                                stroke-width="2" stroke-linecap="round" />
+                        </svg></div>
+                    <h3>Mandatory Categorization</h3>
+                    <p>Default categories during payment eliminate manual tracking later.</p>
+                </div>
+                <div class="feature-card core-feat">
+                    <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor">
                             <path d="M12 4v16m8-8H4" stroke-width="2" stroke-linecap="round" />
-                        </svg>
-                    </div>
-                    <h3>QR-Based Auto-Categorization</h3>
-                    <p>Vendors embed category metadata in QR codes. Scan and pay -
-                        categorization happens automatically.
-                    </p>
-                    <div class="feature-tag">Zero Effort</div>
+                        </svg></div>
+                    <h3>QR-Based Detection</h3>
+                    <p>Scan & Pay seamlessly. The system detects merchant categories instantly.</p>
+                </div>
+                <div class="feature-card core-feat">
+                    <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke-width="2" />
+                            <line x1="8" y1="21" x2="16" y2="21" stroke-width="2" />
+                        </svg></div>
+                    <h3>System-Level Integration</h3>
+                    <p>No separate app needed. Works directly inside your UPI apps.</p>
+                </div>
+                <div class="feature-card core-feat">
+                    <div class="feature-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor">
+                            <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-width="2" />
+                        </svg></div>
+                    <h3>Centralized Dashboard</h3>
+                    <p>Visualize daily, weekly, and monthly expenses with auto-generated charts.</p>
                 </div>
 
-                <!-- Feature 2 -->
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path
-                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
-                                stroke-width="2" stroke-linecap="round" />
-                        </svg>
-                    </div>
-                    <h3>Mandatory Category Selection</h3>
-                    <p>No "uncategorized" expenses. Every transaction requires a category before
-                        completion.</p>
-                    <div class="feature-tag">100% Coverage</div>
+                <!-- Hidden by default, toggled via JS -->
+                <div class="feature-card smart-feat" style="display:none;">
+                    <div class="feature-icon">🧠</div>
+                    <h3>Auto-Learning Engine</h3>
+                    <p>System learns your corrections to improve future auto-categorization.</p>
+                </div>
+                <div class="feature-card smart-feat" style="display:none;">
+                    <div class="feature-icon">📈</div>
+                    <h3>Expense Pattern Analysis</h3>
+                    <p>Identifies trends by time and day to give deeper insights.</p>
+                </div>
+                <div class="feature-card smart-feat" style="display:none;">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Spike Detection</h3>
+                    <p>Instant alerts for anomalies or unusually high transactions.</p>
                 </div>
 
-                <!-- Feature 3 -->
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path
-                                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                                stroke-width="2" stroke-linecap="round" />
-                        </svg>
-                    </div>
-                    <h3>AI Learning Engine</h3>
-                    <p>System learns from your corrections and automatically applies rules for
-                        future payments.</p>
-                    <div class="feature-tag">Smart AI</div>
-                </div>
-
-                <!-- Feature 4 -->
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path
-                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                                stroke-width="2" stroke-linecap="round" />
-                        </svg>
-                    </div>
-                    <h3>Predictive Budget Alerts</h3>
-                    <p>AI warns you before you exceed limits based on current spending pace and
-                        patterns.</p>
-                    <div class="feature-tag">Proactive</div>
-                </div>
-
-                <!-- Feature 5 -->
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path
-                                d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"
-                                stroke-width="2" stroke-linecap="round" />
-                        </svg>
-                    </div>
+                <div class="feature-card control-feat" style="display:none;">
+                    <div class="feature-icon">🔒</div>
                     <h3>Offline-First Privacy</h3>
-                    <p>All data stored locally in encrypted containers. No cloud uploads. Your
-                        data stays yours.</p>
-                    <div class="feature-tag">Secure</div>
+                    <p>Data stored locally on-device. No cloud uploads by default.</p>
                 </div>
-
-                <!-- Feature 6 -->
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"
-                                stroke-width="2" stroke-linecap="round" />
-                        </svg>
-                    </div>
-                    <h3>Visual Analytics Dashboard</h3>
-                    <p>Beautiful charts, trend analysis, and actionable insights at your
-                        fingertips.</p>
-                    <div class="feature-tag">Insightful</div>
+                <div class="feature-card control-feat" style="display:none;">
+                    <div class="feature-icon">📤</div>
+                    <h3>Universal Export</h3>
+                    <p>Export reports to PDF or CSV for personal analysis or accounting.</p>
+                </div>
+                <div class="feature-card control-feat" style="display:none;">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Minimal Data Sharing</h3>
+                    <p>Vendors see only categories, never your spending history.</p>
                 </div>
             </div>
         </div>
@@ -274,7 +267,15 @@
                                     <span>🔍</span>
                                     <span>Pay anyone on UPI</span>
                                 </div>
-                                <div class="gpay-profile">R</div>
+                                <div style="display:flex; gap:10px; align-items:center;">
+                                    <button onclick="showNotifications()"
+                                        style="background:none; border:none; font-size:1.2rem; cursor:pointer; position:relative;">
+                                        🔔
+                                        <span
+                                            style="position:absolute; top:0; right:0; width:8px; height:8px; background:#ef4444; border-radius:50%;"></span>
+                                    </button>
+                                    <div class="gpay-profile">R</div>
+                                </div>
                             </div>
 
                             <div class="gpay-hero">
@@ -350,6 +351,58 @@
                                     <span class="icon">🏦</span>
                                     <span>Check bank balance</span>
                                 </div>
+                                <div class="gpay-footer-item" onclick="featureComingSoon('Budget Management')">
+                                    <span class="icon">📉</span>
+                                    <span>Manage Monthly Budget</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Notification Screen -->
+                        <div class="upi-screen" id="notificationScreen">
+                            <div class="payment-header" style="background:white; border-bottom:1px solid #f1f3f4;">
+                                <button class="back-btn-dark" onclick="goToHome()">←</button>
+                                <h3>Alerts & Insights</h3>
+                                <button class="menu-btn">⋮</button>
+                            </div>
+                            <div class="notification-list" style="padding:1rem; flex:1; overflow-y:auto;">
+                                <!-- Mock Notifications -->
+                                <div class="notif-card"
+                                    style="background:white; padding:1rem; border-radius:12px; border:1px solid #e2e8f0; margin-bottom:1rem; box-shadow:0 2px 4px rgba(0,0,0,0.02);">
+                                    <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
+                                        <span
+                                            style="font-size:0.75rem; font-weight:700; color:#ef4444; background:#fee2e2; padding:2px 8px; border-radius:4px;">SPENDING
+                                            SPIKE</span>
+                                        <span style="font-size:0.75rem; color:#64748b;">Today</span>
+                                    </div>
+                                    <p style="font-size:0.9rem; color:#1e293b; margin-bottom:0.5rem;">Unusually high
+                                        expense of <strong>₹2,450</strong> at BigBasket detected.</p>
+                                    <div style="font-size:0.8rem; color:#6366f1; font-weight:600;">View Details →</div>
+                                </div>
+
+                                <div class="notif-card"
+                                    style="background:white; padding:1rem; border-radius:12px; border:1px solid #e2e8f0; margin-bottom:1rem; box-shadow:0 2px 4px rgba(0,0,0,0.02);">
+                                    <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
+                                        <span
+                                            style="font-size:0.75rem; font-weight:700; color:#f59e0b; background:#fef3c7; padding:2px 8px; border-radius:4px;">BUDGET
+                                            ALERT</span>
+                                        <span style="font-size:0.75rem; color:#64748b;">Yesterday</span>
+                                    </div>
+                                    <p style="font-size:0.9rem; color:#1e293b; margin-bottom:0.5rem;">You've used
+                                        <strong>85%</strong> of your monthly Food budget (₹8,500 / ₹10,000).</p>
+                                </div>
+
+                                <div class="notif-card"
+                                    style="background:white; padding:1rem; border-radius:12px; border:1px solid #e2e8f0; margin-bottom:1rem; box-shadow:0 2px 4px rgba(0,0,0,0.02);">
+                                    <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
+                                        <span
+                                            style="font-size:0.75rem; font-weight:700; color:#3b82f6; background:#dbeafe; padding:2px 8px; border-radius:4px;">WEEKLY
+                                            REPORT</span>
+                                        <span style="font-size:0.75rem; color:#64748b;">Feb 2</span>
+                                    </div>
+                                    <p style="font-size:0.9rem; color:#1e293b; margin-bottom:0.5rem;">Your spending is
+                                        roughly the same as last week. Total: ₹4,520.</p>
+                                </div>
                             </div>
                         </div>
 
@@ -377,62 +430,64 @@
                                 Scan</button>
                         </div>
 
-                        <!-- Payment Details Screen (Compact) -->
-                        <div class="upi-screen" id="paymentScreen"
-                            style="display: none; flex-direction: column; height: 100%; padding: 1.5rem;">
-                            <div class="payment-header"
-                                style="padding: 0; margin-bottom: 1.5rem; border: none; background: transparent;">
+                        <!-- Payment Details Screen (GPay Style) -->
+                        <div class="upi-screen" id="paymentScreen">
+                            <div class="payment-header">
                                 <button class="back-btn-dark" onclick="goToHome()">←</button>
                                 <h3>Pay</h3>
                                 <button class="menu-btn">⋮</button>
                             </div>
 
-                            <!-- Compact Merchant Info -->
-                            <div class="merchant-card compact"
-                                style="padding: 0; margin-bottom: 2rem; background: transparent; text-align: center; box-shadow: none;">
-                                <div class="merchant-avatar-large" id="merchant-avatar"
-                                    style="width: 60px; height: 60px; font-size: 1.8rem; margin: 0 auto 0.5rem;">
-                                    🍕</div>
-                                <h4 style="font-size: 1.1rem; margin-bottom: 0.2rem;" id="merchant-name">Pizza
-                                    Paradise</h4>
-                                <div class="merchant-upi" style="font-size: 0.85rem;" id="merchant-upi">
-                                    pizza.paradise@okicici</div>
-                            </div>
-
-                            <div class="payment-amount-section compact"
-                                style="background: white; border-radius: 20px; padding: 1.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.05); flex: 1; display: flex; flex-direction: column;">
-                                <label
-                                    style="text-align: center; display: block; margin-bottom: 1rem; font-weight: 600; color: #64748b;">Enter
-                                    Amount</label>
-                                <div class="amount-input-large"
-                                    style="margin-bottom: 1.5rem; justify-content: center; background: #f8fafc; border: none;">
-                                    <span class="currency-large">₹</span>
-                                    <input type="number" id="amountInput" value="450" placeholder="0"
-                                        style="width: 120px; text-align: left;">
+                            <div class="payment-content"
+                                style="padding: 1.5rem; flex: 1; display: flex; flex-direction: column; align-items: center;">
+                                <!-- Merchant Info -->
+                                <div class="merchant-info-v2" style="text-align: center; margin-bottom: 2rem;">
+                                    <div class="merchant-avatar-large" id="merchant-avatar"
+                                        style="width: 72px; height: 72px; font-size: 2rem; margin: 0 auto 1rem; background: #e8f0fe; color: #1a73e8;">
+                                        🍕</div>
+                                    <h4 id="merchant-name"
+                                        style="font-size: 1.25rem; color: #202124; margin-bottom: 0.25rem;">Pizza
+                                        Paradise</h4>
+                                    <p id="merchant-upi" style="font-size: 0.9rem; color: #5f6368; font-weight: 500;">
+                                        pizza.paradise@okicici</p>
                                 </div>
 
-                                <div class="category-section-compact" style="margin-bottom: 2rem;">
-                                    <div class="category-header-small"
-                                        style="text-align: center; margin-bottom: 0.8rem;">
-                                        <label style="font-size: 0.85rem;">Select
-                                            Category</label>
+                                <!-- Amount Input Section -->
+                                <div class="amount-container"
+                                    style="width: 100%; text-align: center; margin-bottom: 2rem;">
+                                    <div class="amount-input-wrapper"
+                                        style="display: flex; align-items: center; justify-content: center; position: relative;">
+                                        <span
+                                            style="font-size: 2.5rem; font-weight: 800; color: #202124; margin-right: 0.5rem;">₹</span>
+                                        <input type="number" id="amountInput" value="450" placeholder="0"
+                                            style="border: none; background: transparent; font-size: 4rem; font-weight: 800; color: #202124; outline: none; width: 200px; text-align: left;">
                                     </div>
-                                    <div class="category-grid-compact"
-                                        style="display: flex; justify-content: center; gap: 0.8rem;">
+                                    <div
+                                        style="background: #f1f3f4; border-radius: 20px; padding: 0.5rem 1rem; display: inline-block; margin-top: 1rem; color: #3c4043; font-size: 0.85rem; font-weight: 500;">
+                                        Add a note
+                                    </div>
+                                </div>
+
+                                <!-- Category Selection -->
+                                <div class="category-selection-v2" style="width: 100%; margin-top: auto;">
+                                    <p
+                                        style="text-align: center; font-size: 0.8rem; color: #5f6368; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 1rem;">
+                                        Select Category</p>
+                                    <div class="category-grid-v2"
+                                        style="display: flex; justify-content: space-around; background: #f8fafc; padding: 1rem; border-radius: 24px; border: 1px solid #e8eaed;">
                                         <button class="category-btn-emoji active" data-category="Food">🍔</button>
-                                        <button class="category-btn-emoji" data-category="Entertainment">🎬</button>
-                                        <button class="category-btn-emoji" data-category="Shopping">�️</button>
+                                        <button class="category-btn-emoji" data-category="Shopping">🛍️</button>
+                                        <button class="category-btn-emoji" data-category="Travel">🚗</button>
                                         <button class="category-btn-emoji" data-category="Bills">⚡</button>
                                     </div>
                                 </div>
 
-                                <div style="margin-top: auto;">
-                                    <button class="pay-button-new full-width" onclick="processPayment()"
-                                        style="margin: 0; padding: 1rem;">
-                                        <span>Pay Now</span>
-                                        <span class="pay-arrow">→</span>
-                                    </button>
-                                </div>
+                                <!-- Pay Button -->
+                                <button class="pay-button-new" onclick="processPayment()"
+                                    style="width: 100%; margin: 1.5rem 0 0; background: #1a73e8; border-radius: 24px; font-size: 1rem; padding: 1.1rem;">
+                                    <span>Pay Now</span>
+                                    <span class="pay-arrow">→</span>
+                                </button>
                             </div>
                         </div>
 
@@ -695,10 +750,11 @@
                 <h2>Ready to Transform Your Financial Awareness?</h2>
                 <p>Join the revolution in frictionless expense tracking</p>
                 <div class="cta-buttons">
-                    <button class="btn btn-primary btn-large">
+                    <button class="btn btn-primary btn-large"
+                        onclick="alert('Early access request sent! We will notify you soon.')">
                         Request Early Access
                     </button>
-                    <button class="btn btn-secondary btn-large">
+                    <button class="btn btn-secondary btn-large" onclick="alert('Documentation is coming soon!')">
                         View Documentation
                     </button>
                 </div>
