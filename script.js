@@ -61,7 +61,33 @@ function simulateScan() {
     // Add scanning animation
     qrCode.classList.add('scanning');
 
-    setTimeout(() => {
+    setTimeout(async () => {
+        try {
+            // Call backend to simulate dynamic scan
+            const response = await fetch(`${API_BASE}/scan`, { method: 'POST' });
+            const result = await response.json();
+
+            if (result.success) {
+                const merchant = result.data;
+
+                // Update interface with scanned merchant
+                const nameEl = document.getElementById('merchant-name');
+                const upiEl = document.getElementById('merchant-upi');
+                const avatarEl = document.getElementById('merchant-avatar');
+                if (nameEl) nameEl.textContent = merchant.name;
+                if (upiEl) upiEl.textContent = merchant.upi;
+                if (avatarEl) avatarEl.textContent = merchant.avatar;
+
+                // Pre-select category if detected
+                if (merchant.category) {
+                    const btn = document.querySelector(`.category-btn-emoji[data-category="${merchant.category}"]`);
+                    if (btn) btn.click();
+                }
+            }
+        } catch (e) {
+            console.error("Scan error", e);
+        }
+
         qrCode.classList.remove('scanning');
         qrCode.classList.add('scanned');
 
@@ -69,7 +95,7 @@ function simulateScan() {
             qrCode.classList.remove('visible', 'scanned');
             switchScreen('paymentScreen');
         }, 600);
-    }, 2000);
+    }, 1500); // 1.5s scan time
 }
 
 async function processPayment() {
@@ -245,6 +271,9 @@ async function initDashboard() {
 
         if (result.success) {
             analyticsData = result.data;
+            if (result.data.summary) {
+                updateDashboardSummary(result.data.summary);
+            }
             createCategoryChart(result.data.categoryData);
             createTrendChart(result.data.trendData);
             populateDashboardTransactions(transactionsData);
@@ -260,6 +289,31 @@ async function initDashboard() {
         ]);
         createTrendChart([1200, 1800, 1500, 2200, 1900, 2400, 2100]);
     }
+}
+
+function updateDashboardSummary(summary) {
+    if (!summary) return;
+
+    // Total Spent
+    const totalSpentEl = document.getElementById('summary-total-spent');
+    if (totalSpentEl) totalSpentEl.textContent = `₹${summary.totalSpent.toLocaleString('en-IN')}`;
+
+    // Budget Remaining
+    const budgetEl = document.getElementById('summary-budget-remaining');
+    if (budgetEl) budgetEl.textContent = `₹${summary.budgetRemaining.toLocaleString('en-IN')}`;
+
+    // Txn Count
+    const countEl = document.getElementById('summary-txn-count');
+    if (countEl) countEl.textContent = summary.txnCount;
+
+    // Top Category
+    const topCatEl = document.getElementById('summary-top-category');
+    if (topCatEl) topCatEl.textContent = summary.topCategory !== "None" ? `${getCategoryIcon(summary.topCategory)} ${summary.topCategory}` : "None";
+}
+
+function getCategoryIcon(category) {
+    const icons = { 'Food': '🍔', 'Transport': '🚗', 'Shopping': '🛍️', 'Bills': '⚡', 'Entertainment': '🎬' };
+    return icons[category] || '💰';
 }
 
 function createCategoryChart(data) {
@@ -458,6 +512,26 @@ function resizeCanvas(canvas) {
 
 // Initialize on load
 document.addEventListener('DOMContentLoaded', function () {
+    // Add Money Logic
+    window.addMoney = async function () {
+        const amount = prompt("Enter amount to add (₹):");
+        if (amount && !isNaN(amount)) {
+            try {
+                const response = await fetch(`${API_BASE}/add-money`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ amount: parseFloat(amount) })
+                });
+                const result = await response.json();
+                if (result.success) {
+                    alert(`Added ₹${amount}. New Balance: ₹${result.newBalance}`);
+                    fetchUserData(); // Refresh UI
+                }
+            } catch (e) {
+                alert("Failed to add money");
+            }
+        }
+    };
     // Category Selection Logic
     const categoryBtns = document.querySelectorAll('.category-btn-new, .category-btn-small, .category-btn-emoji');
 

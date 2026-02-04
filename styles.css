@@ -525,6 +525,12 @@ h4 {
     display: none;
     flex-direction: column;
     animation: slideIn 0.3s ease-out;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.upi-screen::-webkit-scrollbar {
+    display: none;
 }
 
 .upi-screen.active {
@@ -1926,6 +1932,7 @@ h4 {
         font-size: 0.7rem;
     }
 }
+
 /* Enhanced Animations and Transitions */
 * {
     transition: all 0.3s ease;
@@ -1941,6 +1948,7 @@ h4 {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -1952,6 +1960,7 @@ h4 {
         opacity: 0;
         transform: scale(0.95);
     }
+
     to {
         opacity: 1;
         transform: scale(1);
@@ -1963,6 +1972,7 @@ h4 {
         opacity: 0;
         transform: translateX(-30px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -1974,6 +1984,7 @@ h4 {
         opacity: 0;
         transform: translateX(30px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -1981,9 +1992,12 @@ h4 {
 }
 
 @keyframes float {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-10px);
     }
@@ -1993,6 +2007,7 @@ h4 {
     0% {
         background-position: -1000px 0;
     }
+
     100% {
         background-position: 1000px 0;
     }
@@ -2002,6 +2017,7 @@ h4 {
     0% {
         filter: hue-rotate(0deg);
     }
+
     100% {
         filter: hue-rotate(360deg);
     }
@@ -2055,10 +2071,13 @@ h4 {
 }
 
 @keyframes pulse {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1);
         opacity: 1;
     }
+
     50% {
         transform: scale(1.05);
         opacity: 0.8;
@@ -2094,12 +2113,16 @@ h4 {
 }
 
 /* Card Hover Effects */
-.feature-card, .problem-card, .privacy-card {
+.feature-card,
+.problem-card,
+.privacy-card {
     position: relative;
     overflow: hidden;
 }
 
-.feature-card::after, .problem-card::after, .privacy-card::after {
+.feature-card::after,
+.problem-card::after,
+.privacy-card::after {
     content: '';
     position: absolute;
     top: -50%;
@@ -2112,7 +2135,9 @@ h4 {
     transition: opacity 0.3s, transform 0.3s;
 }
 
-.feature-card:hover::after, .problem-card:hover::after, .privacy-card:hover::after {
+.feature-card:hover::after,
+.problem-card:hover::after,
+.privacy-card:hover::after {
     opacity: 1;
     transform: rotateZ(60deg) translate(1em, -9em);
     transition: transform 0.45s ease-out;
@@ -2161,6 +2186,7 @@ h4 {
     0% {
         stroke-dashoffset: 100;
     }
+
     100% {
         stroke-dashoffset: 0;
     }
@@ -2218,14 +2244,17 @@ canvas {
     .upi-screen {
         transform: none !important;
     }
-    
-    .feature-card, .problem-card, .privacy-card {
+
+    .feature-card,
+    .problem-card,
+    .privacy-card {
         animation-delay: 0s !important;
     }
 }
 
 /* Performance optimizations */
 @media (prefers-reduced-motion: reduce) {
+
     *,
     *::before,
     *::after {
@@ -2235,4 +2264,171 @@ canvas {
     }
 }
 
-.container-fluid { width: 100%; margin: 0 auto; padding: 0 2rem; }
+.container-fluid {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Google Pay Style UI */
+.gpay-top-bar {
+    padding: 2.5rem 1.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8fafc;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.gpay-search-placeholder {
+    flex: 1;
+    background: white;
+    border-radius: 20px;
+    padding: 0.6rem 1rem;
+    border: 1px solid #e2e8f0;
+    color: #5f6368;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-right: 1rem;
+}
+
+.gpay-profile {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #1a73e8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+}
+
+.gpay-hero {
+    padding: 1rem 1.5rem;
+    position: relative;
+}
+
+.gpay-hero-bg {
+    background: #e8f0fe;
+    border-radius: 24px;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    overflow: hidden;
+}
+
+.gpay-action-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem 0.5rem;
+    padding: 1rem 0;
+}
+
+.gpay-action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.gpay-action-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #1a73e8;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: transform 0.2s;
+}
+
+.gpay-action-btn span {
+    font-size: 0.75rem;
+    color: #3c4043;
+    font-weight: 500;
+    text-align: center;
+}
+
+.gpay-section {
+    padding: 2rem 1.5rem;
+}
+
+.gpay-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.gpay-section-header h4 {
+    font-size: 1rem;
+    color: #3c4043;
+}
+
+.gpay-people-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem 0.5rem;
+}
+
+.gpay-person {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.gpay-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #f1f3f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: #1a73e8;
+    border: 1px solid #e2e8f0;
+}
+
+.gpay-name {
+    font-size: 0.75rem;
+    color: #3c4043;
+    font-weight: 500;
+}
+
+.gpay-footer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0 1.5rem 3rem;
+}
+
+.gpay-footer-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    color: #1a73e8;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.gpay-footer-item .icon {
+    font-size: 1.2rem;
+}
