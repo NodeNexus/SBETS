@@ -67,7 +67,8 @@ function switchScreen(screenId) {
     }, 350);
 }
 
-function goToHome() {
+function goToHome(e) {
+    if (e) e.preventDefault(); // Prevent jump to top
     switchScreen('homeScreen');
     fetchUserData();
 }
