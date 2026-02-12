@@ -259,7 +259,6 @@ A: All data stays on-device. Merchants never see your budget or spending history
 
 **Q: "How do you make money?"**
 A: Freemium model - basic tracking free, premium features (bill reminders, investment tracking, tax reports) paid.
-Contact:
 ---
 
 ## 🎉 **You're Ready for Judges!**
