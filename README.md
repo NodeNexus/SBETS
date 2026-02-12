@@ -1,4 +1,4 @@
-# 🚀 SBETS - Enhanced & Judge-Ready Version
+# 🚀 SBETS - Enhanced & Judge-Ready Version:
 
 ## ✨ What Was Fixed & Enhanced
 
