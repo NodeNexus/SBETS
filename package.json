@@ -1,7 +1,7 @@
 {
   "name": "ver1.0",
   "version": "1.0.0",
-  "description": "**Problem:** When scanning a cab/transport merchant, the payment would automatically go into \"Food\" category even if you selected \"Transport\"",
+  "description": "Smart Business Expense Tracker System with simulated QR/UPI payments and real-time expense analytics.",
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
