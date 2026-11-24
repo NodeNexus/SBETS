@@ -14,6 +14,21 @@ A full-stack personal and small-business expense tracking platform featuring sim
 
 ---
 
+## 📐 System Flow & Architecture
+
+```mermaid
+flowchart LR
+    QR["Merchant QR Code"] --> SCAN["Payment Scanner Flow"]
+    SCAN --> CAT["Category Override & Auto-Tagger"]
+    CAT --> TXN["Transaction Ledger Engine"]
+    TXN --> API["Express REST Server"]
+    TXN --> ANALYTICS["Chart.js Analytics Engine"]
+    TXN --> BUDGET["Category Budget Monitor"]
+    BUDGET -->|"Cap Exceeded"| ALERT["Visual Overspend Warning"]
+```
+
+---
+
 ## 🛠️ Tech Stack
 
 - **Frontend:** HTML5, CSS3, Vanilla JavaScript (ES6+), Chart.js
